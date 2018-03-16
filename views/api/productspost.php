@@ -1,6 +1,7 @@
 <?php ?>
-<form action="v1/products" method="post">
+<form action="v1/products/2" method="post">
     <label >Название</label>
+    <input type="text" name="id" value ="2" /> <br>
     <input type="text" name="name" /> <br>
     <label >Цена</label>
     <input type="text" name="price" /> <br>

@@ -16,7 +16,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'DFFDx7PP8GjCW9zysMAPFL4FgpKFUgXDE',
             'enableCookieValidation' => true,
-            'enableCsrfValidation' => true,            
+            'enableCsrfValidation' => true,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -47,13 +47,20 @@ $config = [
         'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                'api/userpost' => 'api/userpost',
-                'api/productspost' => 'api/productspost',
-                'api/<id:.+>' => 'api/v1',
+                'OPTIONS api/v1/*' => 'info/ok',
+                'GET api/v1/users/me' => 'user/me',
+                'POST api/v1/users/login' => 'user/login',
+                'GET api/v1/users/logout' => 'user/logout',
+//                'GET api/userpost' => 'api/userpost',
+//                'GET api/productspost' => 'api/productspost',
+                'POST api/v1/products' => 'product/create',
+                'GET api/v1/products/<id>' => 'product/view',
+                'PUT api/v1/products/<id>' => 'product/update',
             ],
-        ],
+        ]
     ],
     'params' => $params,
 ];
