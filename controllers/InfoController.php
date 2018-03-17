@@ -27,7 +27,8 @@ class InfoController extends Controller
 
     public function actionOk()
     {
-        return header("HTTP/1.1 200 OK");
+        header("HTTP/1.1 200 OK");
+        return ;
     }
 
 }

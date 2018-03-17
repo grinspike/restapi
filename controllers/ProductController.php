@@ -78,7 +78,6 @@ class ProductController extends Controller
         $product->price = $price;
         $product->amount = $amount;
         $product->save();
-
         return;
     }
 

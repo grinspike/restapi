@@ -33,7 +33,7 @@ class UserController extends Controller
     public function actionMe()
     {
         echo json_encode(['message' => "Current user is " . $this->isAuthorizedGetName()]);
-        return true;
+        return;
     }
 
     /**
@@ -58,11 +58,10 @@ class UserController extends Controller
         if ($user) {
             setcookie('token', $user->token, time() + 86400 * 365, '/');
             echo json_encode(['message' => "You are logged in"]);
-            return;
         } else {
             echo json_encode(['message' => "Error. Login or password are incorrect"]);
-            return;
         }
+        return;
     }
 
     /**
